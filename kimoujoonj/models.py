@@ -56,7 +56,7 @@ class Thought(models.Model):
     class Meta:
         verbose_name = 'Thought'
         verbose_name_plural = 'Thought'
-        ordering = ['mediaKey__id', 'date', ]
+        ordering = ['mediaKey__id', '-date', ]
 
     def __str__(self):
         return u'%s | %s | %s | %s | %s' % ( 

@@ -5,7 +5,7 @@ from kimoujoonj import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('accounts.urls')),
-    
+    url(r'^newsfactory/(?P<year_month>\S+)$', views.newsfactory),
     url(r'^$', views.home),
 ]
 
