@@ -23,7 +23,7 @@ def newsfactory(request, year_month):
     year = int(year_month.split('_')[0])
     month = int(year_month.split('_')[1])
 
-    thoughts = Thought.objects.filter(date__year=year, date__month=month).order_by('date')
+    thoughts = Thought.objects.filter(date__year=year, date__month=month).order_by('-date')
     context = { 
         'thoughts': thoughts,
     }
