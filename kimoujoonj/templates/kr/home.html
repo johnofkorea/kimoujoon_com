@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'kr/base.html' %}
 
 {% block main %}
 
@@ -8,18 +8,18 @@
     <div class="mw-indicators mw-body-content"></div>
     
     <h1 id="firstHeading" class="firstHeading" lang="ko">
-    	{{ thought.date | date:"Y.m.d"}} &nbsp; Kim Ou-joon's thought</h1>     
+    	{{ thought.date | date:"Y.m.d"}} &nbsp; 김어준 생각</h1>     
     <div id="bodyContent" class="mw-body-content">
       
       <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
         <div class="mw-parser-output">
         
-        {% include 'profile_table.html' %}
+        {% include 'kr/profile_table.html' %}
         
-          <h2><span class="mw-headline">{{ thought.title_en }}</span></h2>
+          <h2><span class="mw-headline">{{ thought.title_kr }}</span></h2>
           <br />
           <p>
-            {{ thought.content_en | linebreaks }}
+            {{ thought.content_kr | linebreaks }}
           </p>
 
         </div>

@@ -5,8 +5,12 @@ from kimoujoonj import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('accounts.urls')),
+    
     url(r'^newsfactory/(?P<year_month>\S+)$', views.newsfactory),
     url(r'^$', views.home),
+    
+    url(r'^kr/newsfactory/(?P<year_month>\S+)$', views.newsfactory_kr),
+    url(r'^kr/$', views.home_kr),
 ]
 
 
