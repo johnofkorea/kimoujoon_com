@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+  <title>회원가입 | kimoujoon</title>
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
+  <meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+<body class="login" data-admin-utc-offset="0">
+
+  <!-- Container -->
+  <div id="container">
+    
+    <!-- Header -->
+    <div id="header">
+      <div id="branding">
+        <h1 id="site-name"><a href="/">kimoujoon</a></h1>
+      </div>
+    </div>
+    <!-- END Header -->
+ 
+   
+    <!-- Content -->
+    <div id="content" class="colM">
+      <div id="content-main">
+        <form action="/accounts/signup/?next=/" method="post" id="login-form">
+          {% csrf_token %}
+          <div class="form-row">
+            <label class="required" for="id_username">id:</label> 
+            <input type="text" name="username" value="{{ username }}" autofocus maxlength="254" required id="id_username" />
+          </div>
+          
+          <div class="form-row">
+            <label class="required" for="id_password">password:</label> 
+            <input type="password" name="password" required id="id_password" />
+            <input type="hidden" name="next" value="/" />
+          </div>
+
+          <div class="form-row">
+            <label class="required" for="id_password">password again:</label> 
+            <input type="password" name="password2" required id="id_password" />
+          </div>
+
+          <div class="form-row">
+            <label class="required" for="id_username">name:</label> 
+            <input type="text" name="name" value="{{ name }}" autofocus maxlength="254" required id="id_username" />
+          </div>
+
+          <div class="form-row">
+            <label class="required" for="id_username">email:</label> 
+            <input type="text" name="email" value="{{ email }}" autofocus maxlength="254" required id="id_username" />
+          </div>
+
+  
+          <div class="submit-row">
+            <label>&nbsp;</label>
+            <input type="submit" value="Sign Up" />
+          </div>
+        </form>
+      </div>  
+      <br class="clear" />
+      <br />
+      <font color="red">{{ message }}</font>
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+  </div>
+<!-- END Container -->
+
+</body>
+</html>

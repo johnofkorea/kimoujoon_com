@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<!--검색중이 아닐경우 보여지게됨-->
+<div id="main_visual">
+	<!-- Swiper -->
+	<div class="swiper-container main_slide">
+        <div class="swiper-wrapper">
+			
+        {% for slide in slideList %}
+			<div class="swiper-slide">
+				<a href="/people/{{ slide.newsKey.id }}" class="link key_style">
+					<img src="{{ slide.thumbnail }}" class="MapakImg">
+					<div class="text_style style_02">
+						<span class="title">{{ slide.newsKey.title }}</span>
+						<span class="sub">1</span>
+					</div>				
+				</a>
+			</div>
+		{% endfor %}
+			
+		</div>
+		<!-- Add Pagination -->
+        <div class="swiper-pagination" style="position:relative; top:-30px;"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next" style="position:relative; top:-30px;"></div>
+        <div class="swiper-button-prev" style="position:relative; top:-30px;"></div>
+    </div>
+</div>
+
+<!--메인 슬라이드-->
+<div id="contents" class="index_backgroundChange">
+	<div class="content_display warp_padding">
+		
+
+		<!--사람-->
+		<div class="con_warp" style="position:static;">
+			<div class="con_title">
+				<h2>사람</h2>
+				<span><a href="/people/" class="link">더보기<i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
+			</div>
+			<div class="contents_area_article">
+				<div class="article_wrap">
+					<ul class="article_inwrap">
+					
+					{% for news in newsList %}	
+						<li class="">
+							<a href="/people/{{ news.id }}" class="link">
+					 			<span class="img">
+						            <img src="{{ news.thumbnail }}"
+						            	 style="width:268px;height:169px">
+						        </span>
+        						<span class="tit">{{ news.title }}</span> 
+        						<span class="name">{{ news.author }}
+        							<p class="talk">
+										<img src="https://i.imgur.com/2JAxoBL.jpg" 
+											 style="position:relative; top:5px; width:20px; height:20px;" />
+										{{ news.count }}
+									</p>
+        						</span>
+							</a>
+	 					</li>
+	 				{% endfor %}	
+ 						
+			 	    </ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+		<!--소개-->
+		<div class="con_warp">
+			<div class="con_title">
+				<h2>소개</h2>
+				<span>
+					<a href="/intro/" class="link">더보기
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</a>
+				</span>
+			</div>
+			<div class="contents_area_board">
+				<div class="swiper-container">
+					<ul class="swiper-wrapper">
+					
+					{% for intro in introList %}	
+						<li class="swiper-slide">
+							<a href="/intro/{{ intro.id }}" class="link">
+			 					<span class="img">
+				                	<img src="{{ intro.thumbnail }}" 
+				                		 style="width:268px;height:268px">                           
+				                </span>
+					            <span class="tit">{{ intro.title }}</span> 
+					            <span class="name">{{ intro.author }}</span>
+							</a>
+		 				</li>
+	 				{% endfor %}
+
+	 	   			</ul>
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+				<!-- Add Arrows -->
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>		
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

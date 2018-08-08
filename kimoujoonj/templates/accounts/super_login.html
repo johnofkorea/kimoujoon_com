@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+  <title>Super Login</title>
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
+  <meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+<body class="login" data-admin-utc-offset="0">
+
+  <!-- Container -->
+  <div id="container">
+    
+    <!-- Header -->
+    <div id="header">
+      <div id="branding">
+        <h1 id="site-name"><a href="/">Super Login</a></h1>
+      </div>
+    </div>
+    <!-- END Header -->
+ 
+   
+    <!-- Content -->
+    <div id="content" class="colM">
+      <div id="content-main">
+        <form action="" method="post" id="login-form">
+          {% csrf_token %}
+          <div class="form-row">
+            <label class="required" for="id_username">아이디: </label> 
+            <select name="user_id" style="width:100%;">
+              
+            {% for user in users %}  
+              <option value="{{ user.id }}"> {{ user.username }} </option>
+            {% endfor %}
+
+            </select>
+          </div>
+  
+          <div class="form-row">
+            <label class="required" for="id_password">패스워드:</label> 
+            <input type="password" name="password" required id="id_password" />
+            <input type="hidden" name="next" value="/" />
+          </div>
+  
+          <div class="submit-row">
+            <label>&nbsp;</label>
+            <input type="submit" value="Super Login" />
+          </div>
+        </form>
+      </div>  
+      <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+  </div>
+<!-- END Container -->
+
+</body>
+</html>

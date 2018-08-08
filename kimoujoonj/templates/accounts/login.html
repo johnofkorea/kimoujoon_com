@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+  <title>로그인 | kimoujoon</title>
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
+  <meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+<body class="login" data-admin-utc-offset="0">
+
+  <!-- Container -->
+  <div id="container">
+    
+    <!-- Header -->
+    <div id="header">
+      <div id="branding">
+        <h1 id="site-name"><a href="/">서울베스트학원</a></h1>
+      </div>
+    </div>
+    <!-- END Header -->
+ 
+   
+    <!-- Content -->
+    <div id="content" class="colM">
+      <div id="content-main">
+        <form action="/accounts/login/?next=/" method="post" id="login-form">
+          {% csrf_token %}
+          <div class="form-row">
+            <label class="required" for="id_username">id:</label> 
+            <input type="text" name="username" autofocus maxlength="254" required id="id_username" />
+          </div>
+  
+          <div class="form-row">
+            <label class="required" for="id_password">password:</label> 
+            <input type="password" name="password" required id="id_password" />
+            <input type="hidden" name="next" value="/" />
+          </div>
+  
+          <div class="submit-row" style="position:relative; width:100%;" >
+            <label>&nbsp;</label>
+            <input type="submit" value="Log In" style="position:relative; left:-5%;" />
+            &nbsp;
+            <!--<a href="/accounts/signup/" style="position:relative; width:100%; left:-5%;">Sign Up</a>-->
+          </div>
+        </form>
+      </div>  
+      <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+  </div>
+<!-- END Container -->
+
+</body>
+</html>
