@@ -19,3 +19,16 @@ def agent_name(request):
         return 'iPhone'
     else:
         return ''
+
+
+
+@register.simple_tag(takes_context=True)
+def color_keyword(context, content, keyword):
+    "content 와 keyword 를 받아서, content 속의 keyword 에 노란색 하이라이트를 주도록 한다."
+    import re
+
+    content = content.replace('\n', '<br />')
+    insensitive_keyword = re.compile(re.escape(keyword), re.IGNORECASE) 
+    content = insensitive_keyword.sub('<span style="background-color:yellow">' + keyword + '</span>', content)
+    #content = content.replace(keyword, '<span style="background-color:yellow">' + keyword + '</span>')
+    return mark_safe(content)
