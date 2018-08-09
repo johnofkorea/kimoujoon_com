@@ -2,35 +2,41 @@
 
 {% block main %}
 
-{% for thought in thoughts %}
+	{% for thought in thoughts %}
 
-<div id="content" class="mw-body" role="main">
-	<a id="top"></a>
-	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
-	<div class="mw-indicators mw-body-content"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+			<div class="mw-indicators mw-body-content"></div>
 
-	<h1 id="firstHeading" class="firstHeading" lang="ko">
-		{{ thought.date | date:"Y.m.d"}} &nbsp; Kim Ou-joon's thought</h1>     
-	<div id="bodyContent" class="mw-body-content">
-	  
-	  <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
-	    <div class="mw-parser-output">
-	    
-	      <h2><span class="mw-headline">{{ thought.title_en }}</span></h2>
-	      <br />
-	      <p>
-	        {{ thought.content_en | linebreaks }}
-	      </p>
+			<h1 id="firstHeading" class="firstHeading" lang="ko">
+				{{ thought.date | date:"Y.m.d"}} &nbsp; Kim Ou-joon's thought</h1>     
+			<div id="bodyContent" class="mw-body-content">
+			  
+			  <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
+			    <div class="mw-parser-output">
+			    
+			      <h2><span class="mw-headline">{{ thought.title_en }}</span></h2>
+			      <br />
+			      <p>
+			        {{ thought.content_en | linebreaks }}
+			      </p>
 
-	    </div>
-	  </div>         
-	  
-	  <div class="visualClear"></div>
-	</div>
-</div>
-<br />
+			    </div>
+			  </div>         
+			  
+			  <div class="visualClear"></div>
+			</div>
 
-{% endfor %}
+			{% include 'en/news_article.html' %}
+
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+
+	{% endfor %}
 
 {% endblock %}
 

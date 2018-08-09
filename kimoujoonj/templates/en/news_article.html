@@ -1,0 +1,42 @@
+{% for article in thought.newsarticle_set.all %}
+
+  {% if article.language == 2 %}
+      <br />
+      <br />
+      
+      <div id="bodyContent" class="mw-body-content">
+        
+        <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
+          <div class="mw-parser-output">
+            
+            <h2>
+              <span class="mw-headline" style="color:grey;">{{ article.pressKey.title_en }} : {{ article.title }}</span>
+            </h2>
+            
+            <p>
+              <a href="{{ article.url }}" target="_blank">Read the full article: {{ article.url }}</a>
+            </p>
+            
+            <br />
+            
+            <p>
+              <div style="color:grey; font-size:1.1em;">{{ article.content | linebreaks }}</div>
+            </p>
+            
+            <p>
+              <img src="{{ article.picture_url }}" style="position:relative; width:60%; left:20%; " />
+            </p>
+            
+            <p>
+              <h2>[ {{ article.userKey.first_name }}'s Commentary]</h2>
+              {{ article.commentary | linebreaks }}
+            </p>
+
+          </div>
+        </div>         
+
+        <div class="visualClear"></div>
+      </div>
+  {% endif %}
+
+{% endfor %}

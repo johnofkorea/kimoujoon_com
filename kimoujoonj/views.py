@@ -30,6 +30,7 @@ def newsfactory(request, year_month):
     return render(request, 'en/newsfactory.html', context)
 
 
+
 def home_kr(request):
     thought = Thought.objects.all().order_by('-date')[0]
     context = { 
