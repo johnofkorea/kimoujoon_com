@@ -1,20 +1,20 @@
-{% extends 'en/base.html' %}
+{% extends 'jp/base.html' %}
 
 {% block main %}
 
-  <div id="content" class="mw-body" role="main">
+<div id="content" class="mw-body" role="main">
     <a id="top"></a>
     <div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
     <div class="mw-indicators mw-body-content"></div>
     
     <h1 id="firstHeading" class="firstHeading" lang="ko">
-    	{{ thought.date | date:"Y.m.d"}} &nbsp; Kim Ou-joon's thought</h1>     
+    	{{ thought.date | date:"Y.m.d"}} &nbsp; 김어준 생각</h1>     
     <div id="bodyContent" class="mw-body-content">
       
       <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
         <div class="mw-parser-output">
         
-        {% include 'en/profile_table.html' %}
+        {% include 'jp/profile_table.html' %}
         
           <h2><span class="mw-headline">{{ thought.title }}</span></h2>
           <br />
@@ -27,9 +27,8 @@
       
       <div class="visualClear"></div>
     </div>
-
-    {% include 'en/news_article.html' %}
+    {% include 'jp/news_article.html' %}
 
   </div>
-
-{% endblock %}
+  
+  {% endblock %}

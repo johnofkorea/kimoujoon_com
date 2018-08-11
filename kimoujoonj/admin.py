@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Media, Thought, Press, NewsArticle
+from .models import Media, OldThought, Tdate
+					
 
 
 
@@ -9,18 +10,12 @@ admin.site.register(Media, MediaAdmin)
 
 
 
-class ThoughtAdmin(admin.ModelAdmin):
+class OldThoughtAdmin(admin.ModelAdmin):
     search_fields = ('content_kr', )
-admin.site.register(Thought, ThoughtAdmin)
+admin.site.register(OldThought, OldThoughtAdmin)
 
 
 
-class PressAdmin(admin.ModelAdmin):
-    search_fields = ('title', )
-admin.site.register(Press, PressAdmin)
-
-
-
-class NewsArticleAdmin(admin.ModelAdmin):
-    search_fields = ('title', )
-admin.site.register(NewsArticle, NewsArticleAdmin)
+class TdateAdmin(admin.ModelAdmin):
+    search_fields = ('date', )
+admin.site.register(Tdate, TdateAdmin)
