@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from kimoujoonj import views
+from english import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^en/', include('english.urls')),
     url(r'^fr/', include('french.urls')),
     url(r'^jp/', include('japanese.urls')),
-    url(r'^$', include('english.urls')),
+    url(r'^$', views.home),
 ]
 
 
