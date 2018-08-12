@@ -30,5 +30,5 @@ def color_keyword(context, content, keyword):
     content = content.replace('\n', '<br />')
     insensitive_keyword = re.compile(re.escape(keyword), re.IGNORECASE) 
     content = insensitive_keyword.sub('<span style="background-color:yellow">' + keyword + '</span>', content)
-    #content = content.replace(keyword, '<span style="background-color:yellow">' + keyword + '</span>')
     return mark_safe(content)
+

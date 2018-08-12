@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+from django.contrib.auth.models import User
 from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -43,3 +44,22 @@ def search(request):
     }
     return render(request, 'kr/search_result.html', context)
 
+
+
+def contributors(request):
+    users = User.objects.all().order_by('first_name')
+    context = { 
+        'users': users,
+    }
+    return render(request, 'kr/contributors.html', context)
+
+
+
+def contributor(request, user_id):
+    user_id = user_id.replace('/', '')
+    user = User.objects.get(id=user_id)
+    thoughts = user.thoughtkr_set.all().order_by('-date')
+    context = { 
+        'thoughts': thoughts,
+    }
+    return render(request, 'kr/newsfactory.html', context)

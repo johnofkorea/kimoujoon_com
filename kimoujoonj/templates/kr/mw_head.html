@@ -51,19 +51,29 @@
   </div>
 -->
   <div id="right-navigation">
-    <!--
+    
     <div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
       <h3 id="p-views-label">보기</h3>
       <ul>
-        <li id="ca-view" class="collapsible selected"><span><a href="/wiki/%EA%B9%80%EC%96%B4%EC%A4%80">읽기</a></span></li>
-        <li id="ca-edit" class="collapsible">
-          <span><a href="/w/index.php?title=%EA%B9%80%EC%96%B4%EC%A4%80&amp;action=edit" title="이 문서 편집하기 [e]" accesskey="e">편집</a></span>
+      {% if request.path == '/kr/contributors/' %}
+        <li id="ca-view" class="collapsible"><span><a href="/kr/">읽기</a></span></li>
+        <li id="ca-edit" class="collapsible selected">
+          <span><a href="" title="문서 작성에 공헌해 주신 분들">공헌</a></span>
         </li>
+      {% else %}  
+        <li id="ca-view" class="collapsible selected"><span><a href="#">읽기</a></span></li>
+        <li id="ca-edit" class="collapsible">
+          <span><a href="/kr/contributors/" title="문서 작성에 공헌해 주신 분들">공헌</a></span>
+        </li>
+      {% endif %}
+      <!--  
         <li id="ca-history" class="collapsible">
           <span><a href="/w/index.php?title=%EA%B9%80%EC%96%B4%EC%A4%80&amp;action=history" title="이 문서의 과거 편집 내역입니다. [h]" accesskey="h">역사 보기</a></span>
-        </li>            
+        </li>           
+      -->
       </ul>
     </div>
+  <!--  
     <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
       <input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
       <h3 id="p-cactions-label"><span>더 보기</span></h3>
@@ -72,6 +82,7 @@
       </div>
     </div>
   -->
+  
     <div id="p-search" role="search">
       <h3><label for="searchInput">검색</label></h3>
       <form action="/kr/search/" id="searchform">
