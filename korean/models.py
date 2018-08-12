@@ -35,9 +35,9 @@ class ThoughtKr(models.Model):
         return u'%s | %s | %s | %s | %s' % ( 
             self.userKey.username,
             self.date,
+            self.tdateKey,
             self.mediaKey.title_kr,
             self.title,
-            self.content,
         )  
 
 
