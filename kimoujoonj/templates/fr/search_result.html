@@ -1,4 +1,4 @@
-{% extends 'fr/base.html' %}
+{% extends 'kr/base.html' %}
 {% load kimoujoon_filters %}
 
 {% block main %}
@@ -11,7 +11,7 @@
 			<div class="mw-indicators mw-body-content"></div>
 
 			<h1 id="firstHeading" class="firstHeading" lang="ko">
-				{{ thought.date | date:"Y.m.d"}} &nbsp; pensée de Kim Ou-joon</h1>     
+				{{ thought.date | date:"Y.m.d"}} &nbsp; 김어준 생각</h1>     
 			<div id="bodyContent" class="mw-body-content">
 			  
 			  <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
@@ -29,7 +29,7 @@
 			  <div class="visualClear"></div>
 			</div>
 
-			{% include 'fr/news_article.html' %}
+			{% include 'kr/news_article.html' %}
 
 		</div>
 		<br />

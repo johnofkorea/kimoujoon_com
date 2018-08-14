@@ -2,41 +2,50 @@
 
 {% block main %}
 
-	{% for thought in thoughts %}
+{% for thought in thoughts %}
 
-		<div id="content" class="mw-body" role="main">
-			<a id="top"></a>
-			<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
-			<div class="mw-indicators mw-body-content"></div>
-
+	<div id="content" class="mw-body" role="main">
+		<a id="top"></a>
+		<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+		<div class="mw-indicators mw-body-content"></div>
+	
+		<a href="/en/thought/{{ thought.date | date:"Y-m-d"}}/">
 			<h1 id="firstHeading" class="firstHeading" lang="ko">
-				{{ thought.date | date:"Y.m.d"}} &nbsp; Kim Ou-joon's thought</h1>     
-			<div id="bodyContent" class="mw-body-content">
-			  
-			  <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
-			    <div class="mw-parser-output">
-			    
-			      <h2><span class="mw-headline">{{ thought.title }}</span></h2>
-			      <br />
-			      <p>
-			        {{ thought.content | linebreaks }}
-			      </p>
-			      <span style="float:right;">- translated by {{ thought.userKey.first_name }}</span>
-			    </div>
-			  </div>         
-			  
-			  <div class="visualClear"></div>
-			</div>
-
-			{% include 'en/news_article.html' %}
-
+				{{ thought.date | date:"Y.m.d"}} &nbsp; Kim Ou-joon's thought
+			</h1>
+		</a>
+		<div id="bodyContent" class="mw-body-content">
+		  
+		  <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
+		    <div class="mw-parser-output">
+		    
+		      <a href="/en/thought/{{ thought.date | date:"Y-m-d"}}/">
+		      	<h2><span class="mw-headline">{{ thought.title }}</span></h2>
+		      </a>
+		      <br />
+		      <p>
+		        {{ thought.content | linebreaks }}
+		      </p>
+		    
+		      <span style="float:right;">- noted by {{ thought.userKey.first_name }}</span>
+		    
+		    </div>
+		  </div>         
+		
+		  <div class="visualClear"></div>
 		</div>
-		<br />
-		<br />
-		<br />
-		<br />
 
-	{% endfor %}
+
+		{% include 'en/news_article.html' %}
+
+	</div>
+
+	<br />
+	<br />
+	<br />
+	<br />
+
+{% endfor %}
 
 {% endblock %}
 

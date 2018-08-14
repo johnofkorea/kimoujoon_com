@@ -1,4 +1,4 @@
-{% extends 'jp/base.html' %}
+{% extends 'kr/base.html' %}
 
 {% block main %}
 
@@ -14,20 +14,20 @@
       <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
         <div class="mw-parser-output">
         
-        {% include 'jp/profile_table.html' %}
+        {% include 'kr/profile_table.html' %}
         
           <h2><span class="mw-headline">{{ thought.title }}</span></h2>
           <br />
           <p>
             {{ thought.content | linebreaks }}
           </p>
-          <span style="float:right;">- translated by {{ thought.userKey.first_name }}</span>
+          <span style="float:right;">- noted by {{ thought.userKey.first_name }}</span>
         </div>
       </div>         
       
       <div class="visualClear"></div>
     </div>
-    {% include 'jp/news_article.html' %}
+    {% include 'kr/news_article.html' %}
 
   </div>
   

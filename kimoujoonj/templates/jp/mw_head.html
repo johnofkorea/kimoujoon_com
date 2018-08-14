@@ -22,10 +22,10 @@
     <ul>
       
       <li id="pt-anontalk">
-        <a href="/" title="EN" accesskey="n">ENGLISH</a>
+        <a href="/en/">ENGLISH</a>
       </li>
       <li id="pt-anoncontribs">
-        <a href="/kr/" title="EN" accesskey="n">한국어</a>
+        <a href="/kr/">한국어</a>
       </li>
     </ul>
   
@@ -51,19 +51,29 @@
   </div>
 -->
   <div id="right-navigation">
-    <!--
+    
     <div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
       <h3 id="p-views-label">보기</h3>
       <ul>
-        <li id="ca-view" class="collapsible selected"><span><a href="/wiki/%EA%B9%80%EC%96%B4%EC%A4%80">읽기</a></span></li>
-        <li id="ca-edit" class="collapsible">
-          <span><a href="/w/index.php?title=%EA%B9%80%EC%96%B4%EC%A4%80&amp;action=edit" title="이 문서 편집하기 [e]" accesskey="e">편집</a></span>
+      {% if request.path == '/kr/contributors/' %}
+        <li id="ca-view" class="collapsible"><span><a href="/kr/">읽기</a></span></li>
+        <li id="ca-edit" class="collapsible selected">
+          <span><a href="" title="문서 작성에 공헌해 주신 분들">공헌</a></span>
         </li>
+      {% else %}  
+        <li id="ca-view" class="collapsible selected"><span><a href="#">읽기</a></span></li>
+        <li id="ca-edit" class="collapsible">
+          <span><a href="/kr/contributors/" title="문서 작성에 공헌해 주신 분들">공헌</a></span>
+        </li>
+      {% endif %}
+      <!--  
         <li id="ca-history" class="collapsible">
           <span><a href="/w/index.php?title=%EA%B9%80%EC%96%B4%EC%A4%80&amp;action=history" title="이 문서의 과거 편집 내역입니다. [h]" accesskey="h">역사 보기</a></span>
-        </li>            
+        </li>           
+      -->
       </ul>
     </div>
+  <!--  
     <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
       <input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
       <h3 id="p-cactions-label"><span>더 보기</span></h3>
@@ -72,9 +82,10 @@
       </div>
     </div>
   -->
+  
     <div id="p-search" role="search">
       <h3><label for="searchInput">검색</label></h3>
-      <form action="/jp/search/" id="searchform">
+      <form action="/kr/search/" id="searchform">
         <div id="simpleSearch">
           <input type="search" name="search" placeholder="검색" title="검색" id="searchInput"/>
           <input type="submit" name="fulltext" value="검색" title="이 문자열이 포함된 문서 검색" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>

@@ -1,4 +1,4 @@
-{% extends 'kr/base.html' %}
+{% extends 'en/base.html' %}
 
 {% block main %}
 
@@ -9,19 +9,18 @@
 		<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
 		<div class="mw-indicators mw-body-content"></div>
 	
-		<a href="/kr/thought/{{ thought.date | date:"Y-m-d"}}/">
-			<h1 id="firstHeading" class="firstHeading" lang="ko">
-				{{ thought.date | date:"Y.m.d"}} &nbsp; 김어준 생각
-			</h1>
-		</a>
+	
+		<h1 id="firstHeading" class="firstHeading" lang="ko">
+			{{ thought.date | date:"Y.m.d"}} &nbsp; Kim Ou-joon's thought
+		</h1>
+
 		<div id="bodyContent" class="mw-body-content">
 		  
 		  <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
 		    <div class="mw-parser-output">
 		    
-		      <a href="/kr/thought/{{ thought.date | date:"Y-m-d"}}/">
-		      	<h2><span class="mw-headline">{{ thought.title }}</span></h2>
-		      </a>
+		      <h2><span class="mw-headline">{{ thought.title }}</span></h2>
+		      
 		      <br />
 		      <p>
 		        {{ thought.content | linebreaks }}
@@ -36,7 +35,7 @@
 		</div>
 
 
-		{% include 'kr/news_article.html' %}
+		{% include 'en/news_article.html' %}
 
 	</div>
 

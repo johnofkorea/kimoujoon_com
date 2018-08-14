@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
+from django.contrib.auth.models import User
 from django.core import serializers
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 import datetime
 import json
@@ -12,10 +13,8 @@ from .models import ThoughtEn as Thought
 
 def home(request):
     thought = Thought.objects.all().order_by('-date')[0]
-    context = { 
-        'thought': thought,
-    }
-    return render(request, 'en/home.html', context)
+    yy_mm_dd = datetime.datetime.strftime(thought.date, '%Y-%m-%d')
+    return redirect('/en/thought/' + yy_mm_dd + '/')
 
 
 
@@ -32,6 +31,18 @@ def newsfactory(request, year_month):
 
 
 
+def thought(request, yy_mm_dd):
+    yy_mm_dd = yy_mm_dd.replace('/', '')
+    yy_mm_dd = datetime.datetime.strptime(yy_mm_dd, "%Y-%m-%d")
+    
+    thoughts = Thought.objects.filter(date=yy_mm_dd).order_by('mediaKey__id')
+    context = { 
+        'thoughts': thoughts,
+    }
+    return render(request, 'en/thought.html', context)
+
+
+
 def search(request):
     if request.method == 'GET':
         keyword = request.GET.get('search')
@@ -43,3 +54,22 @@ def search(request):
     }
     return render(request, 'en/search_result.html', context)
 
+
+
+def contributors(request):
+    users = User.objects.all().order_by('first_name')
+    context = { 
+        'users': users,
+    }
+    return render(request, 'en/contributors.html', context)
+
+
+
+def contributor(request, user_id):
+    user_id = user_id.replace('/', '')
+    user = User.objects.get(id=user_id)
+    thoughts = user.thoughtkr_set.all().order_by('-date')
+    context = { 
+        'thoughts': thoughts,
+    }
+    return render(request, 'en/newsfactory.html', context)
