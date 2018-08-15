@@ -10,7 +10,7 @@ from kimoujoonj import d
 
 class ThoughtFr(models.Model):
     """
-    한국어 김어준 생각
+    프랑스어 김어준 생각
     """
     userKey = models.ForeignKey(User, default=1)
     date = models.DateField()
@@ -32,12 +32,11 @@ class ThoughtFr(models.Model):
         ordering = ['mediaKey__id', '-date', ]
 
     def __str__(self):
-        return u'%s | %s | %s | %s | %s' % ( 
+        return u'%s | %s | %s | %s' % ( 
             self.userKey.username,
             self.date,
             self.mediaKey.title_kr,
             self.title,
-            self.content,
         )  
 
 

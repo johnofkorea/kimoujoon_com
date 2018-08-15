@@ -32,12 +32,11 @@ class ThoughtJp(models.Model):
         ordering = ['mediaKey__id', '-date', ]
 
     def __str__(self):
-        return u'%s | %s | %s | %s | %s' % ( 
+        return u'%s | %s | %s | %s' % ( 
             self.userKey.username,
             self.date,
             self.mediaKey.title_kr,
             self.title,
-            self.content,
         )  
 
 
