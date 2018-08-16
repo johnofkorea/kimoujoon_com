@@ -21,12 +21,16 @@
   -->
     <ul>
       
-      <li id="pt-anontalk">
-        <a href="/en/">ENGLISH</a>
-      </li>
       <li id="pt-anoncontribs">
-        <a href="/kr/">한국어</a>
+        <a href="/fr/" title="KR" accesskey="n">한국어</a>
       </li>
+      <li id="pt-anontalk">
+        <a href="/en/" title="EN" accesskey="n">English</a>
+      </li>
+      <li id="pt-anontalk">
+        <a href="/fr/" title="FR" accesskey="n">français</a>
+      </li>
+      
     </ul>
   
   </div>
@@ -53,17 +57,17 @@
   <div id="right-navigation">
     
     <div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
-      <h3 id="p-views-label">보기</h3>
+      <h3 id="p-views-label">regarder</h3>
       <ul>
-      {% if request.path == '/kr/contributors/' %}
-        <li id="ca-view" class="collapsible"><span><a href="/kr/">읽기</a></span></li>
+      {% if request.path == '/fr/contributors/' %}
+        <li id="ca-view" class="collapsible"><span><a href="/fr/">lire</a></span></li>
         <li id="ca-edit" class="collapsible selected">
-          <span><a href="" title="문서 작성에 공헌해 주신 분들">공헌</a></span>
+          <span><a href="" title="문서 작성에 공헌해 주신 분들">contribution</a></span>
         </li>
       {% else %}  
-        <li id="ca-view" class="collapsible selected"><span><a href="#">읽기</a></span></li>
+        <li id="ca-view" class="collapsible selected"><span><a href="#">lire</a></span></li>
         <li id="ca-edit" class="collapsible">
-          <span><a href="/kr/contributors/" title="문서 작성에 공헌해 주신 분들">공헌</a></span>
+          <span><a href="/fr/contributors/" title="문서 작성에 공헌해 주신 분들">contribution</a></span>
         </li>
       {% endif %}
       <!--  
@@ -84,11 +88,11 @@
   -->
   
     <div id="p-search" role="search">
-      <h3><label for="searchInput">검색</label></h3>
-      <form action="/kr/search/" id="searchform">
+      <h3><label for="searchInput">chercher</label></h3>
+      <form action="/fr/search/" id="searchform">
         <div id="simpleSearch">
-          <input type="search" name="search" placeholder="검색" title="검색" id="searchInput"/>
-          <input type="submit" name="fulltext" value="검색" title="이 문자열이 포함된 문서 검색" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+          <input type="search" name="search" placeholder="chercher" title="chercher" id="searchInput"/>
+          <input type="submit" name="fulltext" value="chercher" title="이 문자열이 포함된 문서 chercher" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
           <input type="submit" name="go" value="보기" title="이 이름의 문서가 존재하면 그 문서로 바로 가기" id="searchButton" class="searchButton"/>             
         </div>
       </form>

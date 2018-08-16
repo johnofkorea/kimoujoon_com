@@ -25,7 +25,7 @@ def newsfactory(request, year_month):
     year = int(year_month.split('_')[0])
     month = int(year_month.split('_')[1])
 
-    thoughts = Thought.objects.filter(date__year=year, date__month=month).order_by('-date')
+    thoughts = Thought.objects.filter(date__year=year, date__month=month, is_valid=True).order_by('-date')
     context = { 
         'thoughts': thoughts,
     }
@@ -70,7 +70,7 @@ def contributors(request):
 def contributor(request, user_id):
     user_id = user_id.replace('/', '')
     user = User.objects.get(id=user_id)
-    thoughts = user.thoughtkr_set.all().order_by('-date')
+    thoughts = user.thoughtjp_set.filter(is_valid=True).order_by('-date')
     context = { 
         'thoughts': thoughts,
     }

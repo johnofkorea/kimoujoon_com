@@ -2,7 +2,7 @@
 from django.contrib.auth.models import User
 from django.core import serializers
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 import datetime
 import json
@@ -13,10 +13,8 @@ from .models import ThoughtFr as Thought
 
 def home(request):
     thought = Thought.objects.all().order_by('-date')[0]
-    context = { 
-        'thought': thought,
-    }
-    return render(request, 'fr/home.html', context)
+    yy_mm_dd = datetime.datetime.strftime(thought.date, '%Y-%m-%d')
+    return redirect('/fr/thought/' + yy_mm_dd + '/')
 
 
 
@@ -25,7 +23,7 @@ def newsfactory(request, year_month):
     year = int(year_month.split('_')[0])
     month = int(year_month.split('_')[1])
 
-    thoughts = Thought.objects.filter(date__year=year, date__month=month).order_by('-date')
+    thoughts = Thought.objects.filter(date__year=year, date__month=month, is_valid=True).order_by('-date')
     context = { 
         'thoughts': thoughts,
     }
@@ -70,7 +68,7 @@ def contributors(request):
 def contributor(request, user_id):
     user_id = user_id.replace('/', '')
     user = User.objects.get(id=user_id)
-    thoughts = user.thoughtkr_set.all().order_by('-date')
+    thoughts = user.thoughtfr_set.filter(is_valid=True).order_by('-date')
     context = { 
         'thoughts': thoughts,
     }

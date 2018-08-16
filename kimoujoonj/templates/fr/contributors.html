@@ -1,4 +1,4 @@
-{% extends 'kr/base.html' %}
+{% extends 'fr/base.html' %}
 
 {% block main %}
 
@@ -7,29 +7,36 @@
     <div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
     <div class="mw-indicators mw-body-content"></div>
     
-    <h1 id="firstHeading" class="firstHeading" lang="ko">공헌해 주신 분들</h1>     
+    <h1 id="firstHeading" class="firstHeading" lang="ko">contributeurs</h1>     
     <div id="bodyContent" class="mw-body-content">
       
       <div id="mw-content-text" lang="ko" dir="ltr" class="mw-content-ltr">
         <div class="mw-parser-output">
         
-          <h2><span class="mw-headline">한국어</span></h2>
+          <h2><span class="mw-headline">français</span></h2>
           <br />
         
       {% for user in users %}
-        {% if user.thoughtkr_set.all.count %}
+        {% if user.thoughtfr_set.all.count %}
+        <!--  
           <p>
-            <a href="/kr/contributor/{{ user.id }}">{{ user.first_name }} 님 : {{ user.thoughtkr_set.all.count }} 개 작성</a>
+            <a href="/fr/contributor/{{ user.id }}">{{ user.first_name }} : {{ user.thoughtkr_set.all.count }} </a>
           </p>
+
+        -->
         {% endif %}
       {% endfor %}
+          <p>
+            John : 1
+          </p>
+        
         
         </div>
       </div>         
       
       <div class="visualClear"></div>
     </div>
-    {% include 'kr/news_article.html' %}
+    {% include 'fr/news_article.html' %}
 
   </div>
   

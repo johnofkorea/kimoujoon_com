@@ -1,4 +1,4 @@
-{% extends 'kr/base.html' %}
+{% extends 'fr/base.html' %}
 
 {% block main %}
 
@@ -11,7 +11,7 @@
 	
 	
 		<h1 id="firstHeading" class="firstHeading" lang="ko">
-			{{ thought.date | date:"Y.m.d"}} &nbsp; 김어준 생각
+			{{ thought.date | date:"Y.m.d"}} &nbsp; la pensée de Kim Ou-joon
 		</h1>
 
 		<div id="bodyContent" class="mw-body-content">
@@ -26,7 +26,7 @@
 		        {{ thought.content | linebreaks }}
 		      </p>
 		    
-		      <span style="float:right;">- noted by {{ thought.userKey.first_name }}</span>
+		      <span style="float:right;">- noté par {{ thought.userKey.first_name }}</span>
 		    
 		    </div>
 		  </div>         
@@ -35,7 +35,7 @@
 		</div>
 
 
-		{% include 'kr/news_article.html' %}
+		{% include 'fr/news_article.html' %}
 
 	</div>
 
