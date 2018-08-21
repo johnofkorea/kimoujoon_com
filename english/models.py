@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
-from kimoujoonj.models import Media, Tdate
+from kimoujoonj.models import Media, Tmonth, Tdate
 from kimoujoonj import d
 
 
@@ -19,6 +19,7 @@ class ThoughtEn(models.Model):
     title = models.CharField(max_length=512, blank=True, null=True)
     content = models.TextField()
     
+    tmonthKey = models.ForeignKey(Tmonth, blank=True, null=True) 
     tdateKey = models.ForeignKey(Tdate, blank=True, null=True)
     is_valid = models.BooleanField(default=False)
     priority = models.IntegerField(default=0)
