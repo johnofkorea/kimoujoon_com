@@ -62,7 +62,7 @@ class Tdate(models.Model):
     김어준 생각이 있는 날짜. 여기에 Thought 를 채워넣어야 함.
     """
     date = models.DateField()
-    tmonthKey = models.ForeignKey(Tmonth, blank=True, null=True) 
+    tmonthKey = models.ForeignKey(Tmonth) 
     mediaKey = models.ForeignKey(Media, default=1)
     is_in_korean = models.BooleanField(default=False)
     is_in_english = models.BooleanField(default=False)

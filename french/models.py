@@ -12,14 +12,14 @@ class ThoughtFr(models.Model):
     """
     프랑스어 김어준 생각
     """
-    userKey = models.ForeignKey(User, default=1)
+    userKey = models.ForeignKey(User)
     date = models.DateField()
 
     mediaKey = models.ForeignKey(Media, default=1)
     title = models.CharField(max_length=512, blank=True, null=True)
     content = models.TextField()
     
-    tmonthKey = models.ForeignKey(Tmonth, blank=True, null=True) 
+    tmonthKey = models.ForeignKey(Tmonth) 
     tdateKey = models.ForeignKey(Tdate, blank=True, null=True)
     is_valid = models.BooleanField(default=False)
     priority = models.IntegerField(default=0)
