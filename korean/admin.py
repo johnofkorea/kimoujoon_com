@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import ThoughtKr, PressKr, NewsKr
+from .models import TmonthKr, ThoughtKr, PressKr, NewsKr
+
+
+
+class TmonthKrAdmin(admin.ModelAdmin):
+    search_fields = ('year', 'month', )
+admin.site.register(TmonthKr, TmonthKrAdmin)
 
 
 

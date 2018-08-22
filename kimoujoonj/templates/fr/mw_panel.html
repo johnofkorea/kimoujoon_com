@@ -1,3 +1,5 @@
+{% load kimoujoon_filters %}
+
 <div id="mw-panel">
   <div id="p-logo" role="banner">
     <a class="mw-wiki-logo" href="/fr/"  title="home"></a>
@@ -11,20 +13,13 @@
     <h3 id="p-tb-label">News Factory <br />&nbsp;&nbsp;&nbsp;&nbsp;de Kim Ou-joon</h3>
     <div class="body">
       <ul>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2018_08/">2018. 08</a></li>
-      <!--  
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2018_07/">2018. 07</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2018_06/">2018. 06</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2018_05/">2018. 05</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2018_04/">2018. 04</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2018_03/">2018. 03</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2018_02/">2018. 02</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2018_01/">2018. 01</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2017_12/">2017. 12</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2017_11/">2017. 11</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2017_10/">2017. 10</a></li>
-        <li id="t-whatlinkshere"><a href="/fr/newsfactory/2017_09/">2017. 09</a></li>
-      -->
+      {% for obj in tmonths %}
+        <li id="t-whatlinkshere">
+          <a href="/fr/newsfactory/{{ obj.year }}_{{ obj.month }}/">
+            {{ obj.year }}. {{ obj.month }} &nbsp;&nbsp;&nbsp; ({% num_valid_thoughts 'fr' obj %})
+          </a>
+        </li>
+      {% endfor %}
       </ul>
     </div>
   </div>

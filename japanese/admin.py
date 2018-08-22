@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import ThoughtJp, PressJp, NewsJp
+from .models import TmonthJp, ThoughtJp, PressJp, NewsJp
+
+
+
+class TmonthJpAdmin(admin.ModelAdmin):
+    search_fields = ('year', 'month', )
+admin.site.register(TmonthJp, TmonthJpAdmin)
 
 
 

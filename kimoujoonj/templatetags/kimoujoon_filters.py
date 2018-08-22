@@ -32,3 +32,20 @@ def color_keyword(context, content, keyword):
     content = insensitive_keyword.sub('<span style="background-color:yellow">' + keyword + '</span>', content)
     return mark_safe(content)
 
+
+
+@register.simple_tag(takes_context=True)
+def num_valid_thoughts(context, lang, tmonth):
+    "해당 tmonth 에 속한, is_valid 한 김어준생각이 몇 개 있는지 반환한다."
+    if lang == 'kr':
+        return tmonth.thoughtkr_set.filter(is_valid=True).count()
+    elif lang == 'en':
+        return tmonth.thoughten_set.filter(is_valid=True).count()
+    elif lang == 'fr':
+        return tmonth.thoughtfr_set.filter(is_valid=True).count()
+    elif lang == 'jp':
+        return tmonth.thoughtjp_set.filter(is_valid=True).count()
+    else:
+        return -1
+
+

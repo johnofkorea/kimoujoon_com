@@ -1,4 +1,4 @@
-{% extends 'kr/base.html' %}
+{% extends 'jp/base.html' %}
 
 {% block main %}
 
@@ -19,7 +19,7 @@
       {% for user in users %}
         {% if user.thoughtkr_set.all.count %}
           <p>
-            <a href="/kr/contributor/{{ user.id }}">{{ user.first_name }} 님 : {{ user.thoughtkr_set.all.count }} 개 작성</a>
+            <a href="/jp/contributor/{{ user.id }}">{{ user.first_name }} 님 : {{ user.thoughtkr_set.all.count }} 개 작성</a>
           </p>
         {% endif %}
       {% endfor %}
@@ -29,7 +29,7 @@
       
       <div class="visualClear"></div>
     </div>
-    {% include 'kr/news_article.html' %}
+    {% include 'jp/news_article.html' %}
 
   </div>
   

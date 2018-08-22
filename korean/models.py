@@ -1,11 +1,32 @@
 # -*- coding:utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
-from kimoujoonj.models import Media, Tmonth, Tdate
+from kimoujoonj.models import Media, Tdate
 from kimoujoonj import d
 
 
 
+class TmonthKr(models.Model):
+    """
+    김어준 생각이 있는 달. 각각 갯수를 파악하기 위해서임.
+    """
+    year = models.IntegerField(default=0)
+    month = models.IntegerField(default=0)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Tmonth'
+        verbose_name_plural = 'Tmonth'
+        ordering = ['-year', '-month', ]
+
+    def __str__(self):
+        return u'%s | %s . %s' % ( 
+            self.id,
+            self.year,
+            self.month,
+        )  
 
 
 class ThoughtKr(models.Model):
@@ -19,7 +40,7 @@ class ThoughtKr(models.Model):
     title = models.CharField(max_length=512, blank=True, null=True)
     content = models.TextField()
     
-    tmonthKey = models.ForeignKey(Tmonth) 
+    tmonthKey = models.ForeignKey(TmonthKr) 
     tdateKey = models.ForeignKey(Tdate, blank=True, null=True)
     is_valid = models.BooleanField(default=False)
     priority = models.IntegerField(default=0)

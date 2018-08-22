@@ -1,3 +1,5 @@
+{% load kimoujoon_filters %}
+
 <div id="mw-panel">
   <div id="p-logo" role="banner">
     <a class="mw-wiki-logo" href="/en/"  title="home"></a>
@@ -11,11 +13,13 @@
     <h3 id="p-tb-label">Kim Ou-joon's <br /> &nbsp;&nbsp;&nbsp;&nbsp; News Factory</h3>
     <div class="body">
       <ul>
-        <li id="t-whatlinkshere"><a href="/en/newsfactory/2018_08/">2018. 08</a></li>
-        <li id="t-whatlinkshere"><a href="/en/newsfactory/2018_07/">2018. 07</a></li>
-        <li id="t-whatlinkshere"><a href="/en/newsfactory/2018_06/">2018. 06</a></li>
-        <li id="t-whatlinkshere"><a href="/en/newsfactory/2018_05/">2018. 05</a></li>
-        <li id="t-whatlinkshere"><a href="/en/newsfactory/2018_04/">2018. 04</a></li>
+      {% for obj in tmonths %}
+        <li id="t-whatlinkshere">
+          <a href="/en/newsfactory/{{ obj.year }}_{{ obj.month }}/">
+            {{ obj.year }}. {{ obj.month }} &nbsp;&nbsp;&nbsp; ({% num_valid_thoughts 'en' obj %})
+          </a>
+        </li>
+      {% endfor %}
       </ul>
     </div>
   </div>

@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import ThoughtEn, PressEn, NewsEn
+from .models import TmonthEn, ThoughtEn, PressEn, NewsEn
+
+
+
+class TmonthEnAdmin(admin.ModelAdmin):
+    search_fields = ('year', 'month', )
+admin.site.register(TmonthEn, TmonthEnAdmin)
 
 
 

@@ -7,6 +7,7 @@ from django.utils import timezone
 import datetime
 import json
 
+from .models import TmonthEn as Tmonth
 from .models import ThoughtEn as Thought
 
 
@@ -24,8 +25,10 @@ def newsfactory(request, year_month):
     month = int(year_month.split('_')[1])
 
     thoughts = Thought.objects.filter(date__year=year, date__month=month, is_valid=True).order_by('-date')
+    tmonths = Tmonth.objects.all().order_by('-year', '-month')
     context = { 
         'thoughts': thoughts,
+        'tmonths': tmonths,
     }
     return render(request, 'en/newsfactory.html', context)
 
@@ -36,8 +39,10 @@ def thought(request, yy_mm_dd):
     yy_mm_dd = datetime.datetime.strptime(yy_mm_dd, "%Y-%m-%d")
     
     thoughts = Thought.objects.filter(date=yy_mm_dd).order_by('mediaKey__id')
+    tmonths = Tmonth.objects.all().order_by('-year', '-month')
     context = { 
         'thoughts': thoughts,
+        'tmonths': tmonths,
     }
     return render(request, 'en/thought.html', context)
 
@@ -47,9 +52,11 @@ def search(request):
     if request.method == 'GET':
         keyword = request.GET.get('search')
         thoughts = Thought.objects.filter(content__icontains=keyword).order_by('-date')
+        tmonths = Tmonth.objects.all().order_by('-year', '-month')
 
     context = { 
         'thoughts': thoughts,
+        'tmonths': tmonths,
         'keyword': keyword,
     }
     return render(request, 'en/search_result.html', context)
@@ -58,8 +65,11 @@ def search(request):
 
 def contributors(request):
     users = User.objects.all().order_by('first_name')
+    tmonths = Tmonth.objects.all().order_by('-year', '-month')
+
     context = { 
         'users': users,
+        'tmonths': tmonths,
     }
     return render(request, 'en/contributors.html', context)
 
@@ -69,7 +79,10 @@ def contributor(request, user_id):
     user_id = user_id.replace('/', '')
     user = User.objects.get(id=user_id)
     thoughts = user.thoughten_set.filter(is_valid=True).order_by('-date')
+    tmonths = Tmonth.objects.all().order_by('-year', '-month')
+        
     context = { 
         'thoughts': thoughts,
+        'tmonths': tmonths,
     }
     return render(request, 'en/newsfactory.html', context)
