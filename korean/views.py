@@ -65,7 +65,7 @@ def search(request):
 
 
 def contributors(request):
-    users = User.objects.all().order_by('first_name')
+    users = User.objects.all().order_by('-person__contribution_kr')
     tmonths = Tmonth.objects.all().order_by('-year', '-month')
 
     context = { 

@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'english',
     'french',
     'japanese',
+    'adm',
 )
 
 MIDDLEWARE_CLASSES = (

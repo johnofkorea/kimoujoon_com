@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^en/', include('english.urls')),
     url(r'^fr/', include('french.urls')),
     url(r'^jp/', include('japanese.urls')),
+    url(r'^adm/', include('adm.urls')),
     url(r'^$', views.home),
 ]
 

@@ -12,3 +12,7 @@ LANGUAGES = (
     (FRENCH, '프랑스어'),
     (JAPANESE, '일본어'),
 )
+
+
+FOLLOWING = 1
+FOLLOWED_BY = 2

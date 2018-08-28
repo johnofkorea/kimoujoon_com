@@ -19,7 +19,7 @@
       {% for user in users %}
         {% if user.thoughtkr_set.all.count %}
           <p>
-            <a href="/kr/contributor/{{ user.id }}">{{ user.first_name }} 님 : {{ user.thoughtkr_set.all.count }} 개 작성</a>
+            <a href="/kr/contributor/{{ user.id }}">{{ user.first_name }} 님 : {{ user.person.contribution_kr }} 개 작성</a>
           </p>
         {% endif %}
       {% endfor %}
