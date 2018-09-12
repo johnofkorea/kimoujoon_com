@@ -3,7 +3,7 @@
 <form action="" method="POST">
 
 	<select name="user_id">
-	
+		<option value="">------------------</option>
 	{% for user in users %}
 		<option value="{{ user.id }}">{{ user.first_name }}</option>
 	{% endfor %}
