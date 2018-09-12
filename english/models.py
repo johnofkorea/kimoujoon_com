@@ -40,7 +40,7 @@ class ThoughtEn(models.Model):
 
     mediaKey = models.ForeignKey(Media, default=1)
     title = models.CharField(max_length=512, blank=True, null=True)
-    content = models.TextField()
+    content = models.TextField(blank=True, null=True)
     
     tmonthKey = models.ForeignKey(TmonthEn) 
     tdateKey = models.ForeignKey(Tdate, blank=True, null=True)

@@ -20,14 +20,18 @@
     </ul>
   -->
     <ul>
-      
+    {% if request.user.person.level > 99 %}
+      <li id="pt-anoncontribs">
+        <a href="/adm/" title="KR" accesskey="n">adm | </a>
+      </li>
+    {% endif %}
       <li id="pt-anoncontribs">
         <a href="/kr/" title="KR" accesskey="n">한국어</a>
       </li>
-      <li id="pt-anontalk">
+      <li id="pt-anoncontribs">
         <a href="/en/" title="EN" accesskey="n">English</a>
       </li>
-      <li id="pt-anontalk">
+      <li id="pt-anoncontribs">
         <a href="/fr/" title="FR" accesskey="n">français</a>
       </li>
       
